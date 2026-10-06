@@ -1,0 +1,12 @@
+Cenários de teste para calcular_desconto
+
+1. Compra de R$ 99,99 com cliente COMUM: desconto esperado de R$ 0,00.
+2. Compra de R$ 100,00 com cliente COMUM: desconto base de 10%, total de R$ 10,00.
+3. Compra de R$ 499,99 com cliente COMUM: desconto base de 10%, total de R$ 50,00 (arredondado para centavos).
+4. Compra de R$ 500,00 com cliente COMUM: desconto base de 20%, total de R$ 100,00.
+5. Compra de R$ 50,00 com cliente VIP: sem desconto base, mas com acréscimo VIP de 5%, total de R$ 2,50.
+6. Compra de R$ 200,00 com cliente "vip": categoria VIP reconhecida sem distinção de maiúsculas/minúsculas; desconto de 15%, total de R$ 30,00.
+7. Compra de R$ 200,00 com cliente "Vip": categoria VIP reconhecida em combinação de maiúsculas/minúsculas; desconto de 15%, total de R$ 30,00.
+8. Compra de R$ 200,00 com cliente COMUM: desconto de 10%, sem acréscimo, total de R$ 20,00.
+9. Compra de R$ 1.000,00 com cliente COMUM: desconto calculado excede o teto e deve ser limitado a R$ 200,00.
+10. Compra de R$ 2.000,00 com cliente VIP: desconto calculado excede o teto e deve ser limitado a R$ 200,00.
