@@ -1,0 +1,17 @@
+RELATÓRIO DE QA - CALCULADORA DE DESCONTOS
+
+Bugs encontrados no código original
+
+1. A condição valor_compra > 100 excluía compras de exatamente R$ 100,00. O critério exige incluir esse valor na faixa de 10%. O teste em R$ 100,00 falhava; o caso de R$ 99,99 confirma que o valor imediatamente anterior continua sem desconto base.
+
+2. A comparação tipo_cliente == "VIP" reconhecia somente a grafia em maiúsculas. O critério exige ignorar caixa. Em uma compra de R$ 200,00, o cliente "vip" recebia R$ 20,00 em vez de R$ 30,00.
+
+Correções e cobertura
+
+A faixa agora inclui R$ 100,00 e a categoria é normalizada removendo espaços externos e ignorando caixa. A suíte cobre valores antes, no limite e depois de R$ 100,00 e R$ 500,00, as duas categorias, o teto de R$ 200,00, arredondamento e entradas inválidas.
+
+Contrato adotado para entradas inválidas
+
+- Compra negativa, não finita ou categoria vazia/desconhecida: ValueError.
+- Valor de compra que não seja número ou categoria que não seja texto: TypeError.
+- Booleanos não são aceitos como valor de compra.
